@@ -10,7 +10,7 @@ module adder_4bit
  input wire [3:0] b,
  input wire carry_in,
  output wire [3:0] sum,
- output wire overflow
+ output wire carry_out
  );
 
    wire [4:0] carrys; //intermediate state
@@ -19,8 +19,8 @@ module adder_4bit
    generate
       for (i=0; i <= 3; i = i + 1)
 	begin
-	   adder_1bit 1X (.a(a[i]), .b(b[i]), .carry_in(carrys[i], .sum(sum[i]), .carry_out(carrys[i+1]));
-			  end
+	   adder_1bit X1 (.a(a[i]), .b(b[i]), .carry_in(carrys[i]), .sum(sum[i]), .carry_out(carrys[i+1]));
+	end
    endgenerate
-   assign overflow = carrys[4];
+   assign carry_out = carrys[4];
 endmodule
