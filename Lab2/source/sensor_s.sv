@@ -12,9 +12,10 @@
  	output wire error
 );
  
- 	wire ms1;
- 	wire ms2;
- 	AND2X1 A1 (.Y(ms1), .A(sensors[1]), .B(sensors[2]));
- 	AND2X1 A2 (.Y(ms2), .A(sensors[3]), .B(sensors[1]));
-	OR3X1 A3 (.Y(error), .A(sensors[0]), .B(A1), .C(A2));
+   wire      ms1;
+   wire      ms2;
+   OR2X1 A1 (.Y(ms1), .A(sensors[2]), .B(sensors[3]));
+   AND2X1 A2 (.Y(ms2), .A(ms1), .B(sensors[1]));
+   OR2X1 A3 (.Y(error), .A(ms2), .B(sensors[0]));
+      
 endmodule
