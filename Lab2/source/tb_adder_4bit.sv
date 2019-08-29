@@ -21,10 +21,10 @@ module tb_adder_4bit
 	localparam TEST_DELAY					= 10;
 	
 	// Declare Design Under Test (DUT) portmap signals
-	wire	tb_a;
-	wire	tb_b;
+	wire	[3:0] tb_a;
+	wire	[3:0] tb_b;
 	wire	tb_carry_in;
-	wire	tb_sum;
+	wire	[3:0] tb_sum;
 	wire	tb_carry_out;
 	
 	// Declare test bench signals
@@ -33,12 +33,12 @@ module tb_adder_4bit
 	reg [MAX_OUTPUT_BIT:0] tb_expected_outputs;
 	
 	// DUT port map
-	adder_4bit DUT(.a(tb_a), .b(tb_b), .carry_in(tb_carry_in), .sum(tb_sum), .carry_out(tb_carry_out));
+	adder_4bit DUT(.a(tb_a), .b(tb_b), .carry_in(tb_carry_in), .sum(tb_sum), .overflow(tb_carry_out));
 	
 	// Connect individual test input bits to a vector for easier testing
-	assign tb_a					= tb_test_inputs[TEST_A_BIT];
-	assign tb_b					= tb_test_inputs[TEST_B_BIT];
-	assign tb_carry_in	= tb_test_inputs[TEST_CARRY_IN_BIT];
+	assign tb_a					= tb_test_inputs[3:0];
+	assign tb_b					= tb_test_inputs[7:4];
+	assign tb_carry_in	= tb_test_inputs[8];
 	
 	// Test bench process
 	initial
@@ -63,7 +63,7 @@ module tb_adder_4bit
 			#(TEST_DELAY - 1);
 			
 			// Check the DUT's Sum output value
-			if(tb_expected_outputs[TEST_SUM_BIT] == tb_sum)
+			if(tb_expected_outputs[3:0] == tb_sum)
 			begin
 				$info("Correct Sum value for test case %d!", tb_test_case);
 			end
