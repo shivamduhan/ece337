@@ -13,4 +13,6 @@ module adder_8bit
 );
 
 	// STUDENT: Fill in the correct port map with parameter override syntax for using your n-bit ripple carry adder design to be an 8-bit ripple carry adder design
+   parameter BIT_WIDTH = 8;
+   
 endmodule
