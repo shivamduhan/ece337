@@ -3,7 +3,7 @@
 
 `timescale 1ns / 100ps
 
-module tb_adder_16bit
+module tb_adder_16
 ();
 
 // Define local parameters used by the test bench
