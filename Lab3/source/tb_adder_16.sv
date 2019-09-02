@@ -46,7 +46,7 @@ logic [MAX_SUM_BIT:0] tb_sum;
 logic tb_overflow;
 
 // DUT Portmap
-adder_16bit DUT (.a(tb_a), .b(tb_b), .carry_in(tb_carry_in), .sum(tb_sum), .overflow(tb_overflow));
+adder_16 DUT (.a(tb_a), .b(tb_b), .carry_in(tb_carry_in), .sum(tb_sum), .overflow(tb_overflow));
 
 
 // Initial block to cleanly define the contents of the test-vector array

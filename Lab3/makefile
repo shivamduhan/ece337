@@ -335,7 +335,8 @@ elaborate $(MOD_NAME) -lib WORK
 uniquify
 # Step 2: Set design constraints
 # Uncomment below to set timing, area, power, etc. constraints
-# set_max_delay <delay> -from "<input>" -to "<output>"
+ set_max_delay 6.2 -from "b" -to "sum"
+ set_structure true -design adder_16 -boolean true -boolean_effort medium
 # set_max_area <area>
 # set_max_total_power <power> mW
 $(if $(and $(CLOCK_NAME), $(CLOCK_PERIOD)), create_clock "$(CLOCK_NAME)" -name "$(CLOCK_NAME)" -period $(CLOCK_PERIOD))
