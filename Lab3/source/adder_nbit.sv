@@ -16,10 +16,7 @@ module adder_nbit
  output wire overflow
  );
 
-   always @ (a, b, carry_in)
-     begin
-   	
-	end
+
    wire [BIT_WIDTH:0] carrys; //intermediate state
    genvar     i; //variable used for generate loop
    assign carrys[0] =  carry_in;
@@ -27,15 +24,16 @@ module adder_nbit
       for (i=0; i <= BIT_WIDTH-1; i = i + 1)
 	begin
 	   adder_1bit X1 (.a(a[i]), .b(b[i]), .carry_in(carrys[i]), .sum(sum[i]), .carry_out(carrys[i+1]));
-end 
-begin	  
-	assert((a[i] == 1'b1) || (a[i] == 1'b0))
-	  else $error("Input 'a' is not a digital logical value");
-        assert((b[i] == 1'b1)||(b[i] == 1'b0))
-	  else $error("Input 'b' is not a digital logical value");
-	assert((carrys[i] == 1'b1)||(carrys[i] == 1'b0))
-	  else $error("Input 'carry_in' is not a digital logical value");
-end     
+	always @ (a[i], b[i], carrys[i])
+	begin	  
+	   assert((a[i] == 1'b1) || (a[i] == 1'b0))
+	     else $error("Input 'a' is not a digital logical value");
+           assert((b[i] == 1'b1)||(b[i] == 1'b0))
+	     else $error("Input 'b' is not a digital logical value");
+	   assert((carrys[i] == 1'b1)||(carrys[i] == 1'b0))
+	     else $error("Input 'carry_in' is not a digital logical value");
+	end   
+	   end 
    endgenerate
    assign overflow = carrys[BIT_WIDTH];
 endmodule

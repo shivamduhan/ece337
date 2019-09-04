@@ -53,7 +53,7 @@ adder_16bit DUT (.a(tb_a), .b(tb_b), .carry_in(tb_carry_in), .sum(tb_sum), .over
 initial begin
   // Create the test-vector array with enough slots for test cases
   // STUDENT TODO: Update the array declaration to have enough slots
-  tb_test_cases = new[5];
+  tb_test_cases = new[7];
 
   // First Test Case/Test-Vector
   tb_test_cases[0].test_name = "Zeros Check";
@@ -73,19 +73,31 @@ initial begin
   tb_test_cases[2].test_name = "A small, B large";
   tb_test_cases[2].test_a    = 'h5555;
   tb_test_cases[2].test_b    = 'hAAAA;
-  tb_test_cases[2].test_cin  = 1'b0;
+  tb_test_cases[2].test_cin  = 1'b1;
 
   // Fourth Test Case/Test-Vector
   tb_test_cases[3].test_name = "A large, B large";
   tb_test_cases[3].test_a    = 'hFFFF;
   tb_test_cases[3].test_b    = 'hFFFF;
-  tb_test_cases[3].test_cin  = 1'b0;
+  tb_test_cases[3].test_cin  = 1'b1;
 
   // Fifth Test Case/Test-Vector
   tb_test_cases[4].test_name = "A small, B small";
   tb_test_cases[4].test_a    = 'h5555;
   tb_test_cases[4].test_b    = 'h5555;
   tb_test_cases[4].test_cin  = 1'b0;
+
+  // Sixth Test Case/Test-Vector
+  tb_test_cases[5].test_name = "A 1-> 0 toggle";
+  tb_test_cases[5].test_a    = 'hAAAA;
+  tb_test_cases[5].test_b    = 'hFFFF;
+  tb_test_cases[5].test_cin  = 1'b1;
+
+     // Sixth Test Case/Test-Vector
+  tb_test_cases[6].test_name = "A 1-> 0 toggle";
+  tb_test_cases[6].test_a    = 'hAAAA;
+  tb_test_cases[6].test_b    = 'hAAAA;
+  tb_test_cases[6].test_cin  = 1'b1;
 end
 
 // Handle expected results bit-slice mappings
