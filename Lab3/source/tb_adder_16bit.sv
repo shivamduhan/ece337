@@ -19,8 +19,8 @@ localparam TEST_DELAY      = 10;
 // Declare custom test vector type
 typedef struct{
   string                  test_name;
-  logic [MAX_INPUT_BIT:0] test_a;
-  logic [MAX_INPUT_BIT:0] test_b;
+  logic [15:0] test_a;
+  logic [15:0] test_b;
   logic                   test_cin;
 } testVector;
 
@@ -32,17 +32,17 @@ logic   tb_test_case_err;
 
 // Declare test bench expected value signals
 logic [OVERFLOW_BIT:0] tb_expected_outs;
-logic [MAX_SUM_BIT:0]  tb_expected_sum;
+logic [15:0]  tb_expected_sum;
 logic                  tb_expected_overflow;
 
 // Declare the unpacked/dynamically sized test-vector array
 testVector tb_test_cases [];
 
 // Declare Design Under Test (DUT) portmap signals
-logic [MAX_INPUT_BIT:0] tb_a;
-logic [MAX_INPUT_BIT:0] tb_b;
+logic [15:0] tb_a;
+logic [15:0] tb_b;
 logic tb_carry_in;
-logic [MAX_SUM_BIT:0] tb_sum;
+logic [15:0] tb_sum;
 logic tb_overflow;
 
 // DUT Portmap
@@ -65,32 +65,32 @@ initial begin
   
 // Second Test Case/Test-Vector
   tb_test_cases[1].test_name = "A large, B small";
-  tb_test_cases[1].test_a    = 'h1111;
-  tb_test_cases[1].test_b    = 'h0001;
+  tb_test_cases[1].test_a    = 'hAAAA;
+  tb_test_cases[1].test_b    = 'h5555;
   tb_test_cases[1].test_cin  = 1'b0;
 
   // Third First Test Case/Test-Vector
   tb_test_cases[2].test_name = "A small, B large";
-  tb_test_cases[2].test_a    = 'h0001;
-  tb_test_cases[2].test_b    = 'h1111;
+  tb_test_cases[2].test_a    = 'h5555;
+  tb_test_cases[2].test_b    = 'hAAAA;
   tb_test_cases[2].test_cin  = 1'b0;
 
   // Fourth Test Case/Test-Vector
   tb_test_cases[3].test_name = "A large, B large";
-  tb_test_cases[3].test_a    = 'h1111;
-  tb_test_cases[3].test_b    = 'h1111;
+  tb_test_cases[3].test_a    = 'hFFFF;
+  tb_test_cases[3].test_b    = 'hFFFF;
   tb_test_cases[3].test_cin  = 1'b0;
 
   // Fifth Test Case/Test-Vector
   tb_test_cases[4].test_name = "A small, B small";
-  tb_test_cases[4].test_a    = 'h0001;
-  tb_test_cases[4].test_b    = 'h0001;
+  tb_test_cases[4].test_a    = 'h5555;
+  tb_test_cases[4].test_b    = 'h5555;
   tb_test_cases[4].test_cin  = 1'b0;
 end
 
 // Handle expected results bit-slice mappings
-assign tb_expected_sum      = tb_expected_outs[MAX_SUM_BIT:0];
-assign tb_expected_overflow = tb_expected_outs[OVERFLOW_BIT];
+assign tb_expected_sum      = tb_expected_outs[15:0];
+assign tb_expected_overflow = tb_expected_outs[16];
 
 // Initial block for actually test bench runtime code
 initial begin

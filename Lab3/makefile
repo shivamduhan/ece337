@@ -319,7 +319,7 @@ mapped/%.v: source/%.sv $(addprefix source/,$(DEP_SUB_FILES))
 	@echo "\nCheck for synthesis attempt errors complete, open $*.log for details if errors were found"
 	@echo "\nRemember to check $*.log for latches and timing arcs"
 	@echo "Synthesis run complete for design: $@\n\n"
-
+ 
 ##############################################################################
 # Define the synthesis commands to use
 ##############################################################################
@@ -354,7 +354,7 @@ write_file -format verilog -hierarchy -output "mapped/$(MOD_NAME).v"
 
 # Second Compilation Run. Repeat Steps 2-5.
 # Step 2: Put the max delay constraints in second pass only.
- set_max_delay 6.2 -from "b" -to "sum"
+ set_max_delay 6.2 -from "b[0]" -to "sum"
 
 # Step 3: Compile the design
 set_structure true -design $(MOD_NAME) -boolean true -boolean_effort medium
