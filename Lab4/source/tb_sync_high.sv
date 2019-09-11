@@ -10,7 +10,7 @@
 
 `timescale 1ns / 10ps
 
-module tb_sync_low();
+module tb_sync_high();
 
   // Define local parameters used by the test bench
   localparam  CLK_PERIOD    = 1;
@@ -96,7 +96,7 @@ module tb_sync_low();
   end
   
   // DUT Port map
-  sync_low DUT(.clk(tb_clk), .n_rst(tb_n_rst), .async_in(tb_async_in), .sync_out(tb_sync_out));
+  sync_high DUT(.clk(tb_clk), .n_rst(tb_n_rst), .async_in(tb_async_in), .sync_out(tb_sync_out));
   
   // Test bench main process
   initial
