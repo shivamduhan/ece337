@@ -61,6 +61,101 @@ Pad: U7 E
 Orient: R270
 Pad: U16 E
 
+# ADD 10 PADS TO THE NORTH
+Orient: R0
+Pad: Fuck0 N PADNC
+Orient: R0
+Pad: Fuck1 N PADNC
+Orient: R0
+Pad: Fuck2 N PADNC
+Orient: R0
+Pad: Fuck3 N PADNC
+Orient: R0
+Pad: Fuck4 N PADNC
+Orient: R0
+Pad: Fuck5 N PADNC
+Orient: R0
+Pad: Fuck6 N PADNC
+Orient: R0
+Pad: Fuck7 N PADNC
+Orient: R0
+Pad: Fuck8 N PADNC
+Orient: R0
+Pad: Fuck9 N PADNC
 
+# ADD 10 PADS TO THE WEST
+Orient: R90
+Pad: Fuck10 W PADNC
+Orient: R90
+Pad: Fuck11 W PADNC
+Orient: R90
+Pad: Fuck12 W PADNC
+Orient: R90
+Pad: Fuck13 W PADNC
+Orient: R90
+Pad: Fuck14 W PADNC
+Orient: R90
+Pad: Fuck15 W PADNC
+Orient: R90
+Pad: Fuck16 W PADNC
+Orient: R90
+Pad: Fuck17 W PADNC
+Orient: R90
+Pad: Fuck18 W PADNC
+Orient: R90
+Pad: Fuck19 W PADNC
 
+#ADD 10 PADS TO THE SOUTH
+Orient: R180
+Pad: Fuck20 S PADNC
+Orient: R180
+Pad: Fuck21 S PADNC
+Orient: R180
+Pad: Fuck22 S PADNC
+Orient: R180
+Pad: Fuck23 S PADNC
+Orient: R180
+Pad: Fuck24 S PADNC
+Orient: R180
+Pad: Fuck25 S PADNC
+Orient: R180
+Pad: Fuck26 S PADNC
+Orient: R180
+Pad: Fuck27 S PADNC
+Orient: R180
+Pad: Fuck28 S PADNC
+Orient: R180
+Pad: Fuck29 S PADNC
 
+# ADD 10 PADS TO THE EAST
+
+Orient: R270 PADNC
+Pad: Fuck30 E
+Orient: R270 PADNC
+Pad: Fuck31 E
+Orient: R270 PADNC
+Pad: Fuck32 E
+Orient: R270 PADNC
+Pad: Fuck33 E
+Orient: R270 PADNC
+Pad: Fuck34 E
+Orient: R270 PADNC
+Pad: Fuck35 E
+Orient: R270 PADNC
+Pad: Fuck36 E
+Orient: R270 PADNC
+Pad: Fuck37 E
+Orient: R270 PADNC
+Pad: Fuck38 E
+Orient: R270 PADNC
+Pad: Fuck39 E
+
+# ADD ALL CORNER PADS
+Orient: R0
+Pad: Fuck40 NW PADNC
+Orient: R90
+Pad: Fuck41 SW PADNC
+Orient: R180
+Pad: Fuck42 SE PADNC
+Orient: R270
+Pad: Fuck43 NE PADNC
